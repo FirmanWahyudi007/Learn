@@ -14,10 +14,11 @@ class PostTransformer extends TransformerAbstract
 	public function transform(Post $post)
 	{
 		return [
-			'user_id' => $post->user_id,
+			'id' => $post->id,
 			'title' => $post->title,
 			'thumbnail' => $post->thumbnail,
-			'created_at' => $post->created_at->diffForHumans(),
+			'content' => $post->content,
+			'published' => $post->created_at->diffForHumans(),
 		];
 	}
 }

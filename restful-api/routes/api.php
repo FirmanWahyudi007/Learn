@@ -7,3 +7,4 @@ Route::get('users', 'UserController@Users');
 Route::post('register', 'AuthController@Register');
 Route::post('login', 'AuthController@Login');
 Route::get('users/profile', 'UserController@Profile')->middleware('auth:api');
+Route::post('post', 'PostController@add')->middleware('auth:api');
