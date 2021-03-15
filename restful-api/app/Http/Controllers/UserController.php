@@ -10,7 +10,7 @@ use Auth;
 
 class UserController extends Controller
 {
-    public function Users(User $user)
+    public function users(User $user)
     {
     	$users = $user->limit(5)->get();
 
@@ -20,9 +20,20 @@ class UserController extends Controller
     		->toArray();
     }
 
-    public function Profile(User $user)
+    public function profile(User $user)
     {
         $user = $user->find(Auth::user()->id);
+
+        return fractal()
+            ->item($user)
+            ->transformWith(new UserTransformer)
+            ->includePosts()
+            ->toArray();
+    }
+
+    public function profileById(User $user,$id)
+    {
+        $user = $user->find($id);
 
         return fractal()
             ->item($user)
