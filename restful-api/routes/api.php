@@ -11,4 +11,5 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('users/{id}', 'UserController@profileById');
 	Route::post('post', 'PostController@add');
 	Route::put('post/{post}', 'PostController@update');
+	Route::delete('post/{post}', 'PostController@delete');
 });
