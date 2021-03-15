@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function users(User $user)
     {
-    	$users = $user->limit(5)->get();
+    	$users = $user->all();
 
     	return fractal()
     		->collection($users)
@@ -39,6 +39,18 @@ class UserController extends Controller
             ->item($user)
             ->transformWith(new UserTransformer)
             ->includePosts()
+            ->toArray();
+    }
+
+    public function update(Request $request,User $user)
+    {
+        $user->name = $request->get('name', $user->name);
+        $user->email = $request->get('email', $user->email);
+        $user->save();
+
+        return fractal()
+            ->item($user)
+            ->transformWith(new UserTransformer)
             ->toArray();
     }
 }
