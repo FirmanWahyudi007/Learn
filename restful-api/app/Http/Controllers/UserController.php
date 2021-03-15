@@ -27,6 +27,7 @@ class UserController extends Controller
         return fractal()
             ->item($user)
             ->transformWith(new UserTransformer)
+            ->includePosts()
             ->toArray();
     }
 }
