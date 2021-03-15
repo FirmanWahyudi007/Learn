@@ -32,4 +32,19 @@ class PostController extends Controller
 
     	return response()->json($response, 201);
     }
+
+    public function update(Request $request,Post $post)
+    {
+        $this->authorize('update', $post);
+
+        $post->title = $request->get('title', $post->title);
+        $post->thumbnail = $request->get('thumbnail', $post->thumbnail);
+        $post->content = $request->get('content', $post->content);
+        $post->save();
+
+        return fractal()
+            ->item($post)
+            ->transformWith(new PostTransformer)
+            ->toArray();
+    }
 }
