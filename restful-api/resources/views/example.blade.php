@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Halo</title>
+	<title>Home</title>
 </head>
 <body>
-	<h1>Hello Word!!! Firman</h1>
+	<h1>HOMEEE NOPAL</h1>
 </body>
 </html>
