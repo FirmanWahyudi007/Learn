@@ -27,6 +27,11 @@ class HomeController extends Controller
     	return view('home',compact("users"));
     }
 
+    public function create()
+    {
+      // code...
+      return view('home');
+    }
     public function add(Request $request)
     {
     	$data2 = [
