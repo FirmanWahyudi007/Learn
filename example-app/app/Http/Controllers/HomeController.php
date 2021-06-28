@@ -20,7 +20,9 @@ class HomeController extends Controller
     	curl_close($curl);
 
     	$result = json_decode($response);
+		
     	$users = $result->data;
+		dd($users);
     	/*echo "<pre>";
     	print_r($user);
     	echo "</pre>";*/

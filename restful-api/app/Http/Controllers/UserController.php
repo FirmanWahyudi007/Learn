@@ -17,7 +17,7 @@ class UserController extends Controller
     	return fractal()
     		->collection($users)
     		->transformWith(new UserTransformer)
-    		->toArray();
+    		->toArray('data');
     }
 
     public function profile(User $user)
