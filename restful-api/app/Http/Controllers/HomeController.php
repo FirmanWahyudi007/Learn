@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function index()
     {
         // Create your request to your API
-        $request = Request::create('/api/users', 'GET');
+        $request = Request::create('/api/posts/', 'GET');
         $response = Route::dispatch($request);
         $result = json_decode($response->getContent());
         $users = $result->data;

@@ -10,6 +10,15 @@ use Auth;
 
 class PostController extends Controller
 {
+    public function index()
+    {
+        # code...
+        $post = Post::all();
+        return fractal()
+    		->collection($post)
+    		->transformWith(new PostTransformer)
+    		->toArray('data');
+    }
     public function add(Request $request,Post $post)
     {
     	$this->validate($request, [
